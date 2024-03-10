@@ -25,11 +25,6 @@ class CheckoutCreate(CreateAPIView):
     queryset = Checkout.objects.all()
     serializer_class = CheckoutSerializer
 
-    def perform_create(self, serializer):
-
-        print(serializer.validated_data['device'])
-
-        return serializer
 
 
 class ReturnCreate(CreateAPIView):
