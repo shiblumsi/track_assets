@@ -40,13 +40,13 @@ class Device(models.Model):
 
 class Checkout(models.Model):
     AS = {
-        ('IP','IP'),
-        ('RE','RE'),
+        ('IP', 'IP'),
+        ('RE', 'RE'),
     }
     org = models.ForeignKey(Organization, on_delete=models.CASCADE)
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, blank=True)
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
-    status =  models.CharField(max_length=2,choices=AS, default='IP')
+    status = models.CharField(max_length=2, choices=AS, default='IP')
 
     checkout_date = models.DateTimeField(auto_now_add=True)
     return_date = models.DateField()
@@ -60,4 +60,3 @@ class Return(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, blank=True)
     device = models.ForeignKey(Device, on_delete=models.CASCADE)
     return_condition = models.TextField()
-
